@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lessaaug-american-predictor-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: lessaaug-american-predictor
+  template:
+    metadata:
+      labels:
+        app: lessaaug-american-predictor
+    spec:
+      containers:
+      - name: lessaaug-american-predictor
+        image: lessaaugusto/american-predictor:0.2
+        ports:
+        - containerPort: 5004
